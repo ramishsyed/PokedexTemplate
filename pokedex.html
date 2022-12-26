@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Pokedex Template</title>
+	<link rel="stylesheet" href="styles.css" />
+	<script src="script.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+		integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="pokedex-box" id="pokedex-box">
+			<img class="bgtile" src="BGTile.png" >
+			<img class="boxes" src="Boxes.png" >
+			<img class="typebox1" src="typebox1.png" >
+			<img class="typebox2" src="typebox2.png" >
+			<img class="pokemon" src="Pokemon.png" >
+			<p class="pokemon-name" id="pokemon-name">NAME</p>
+			<p class="description" id="description">Description Pokémon</p>
+			<div class="typecolor1" id="typecolor1" style="background-color:aquamarine;"></div>
+			<div class="typecolor2" id="typecolor2" style="background-color:aquamarine;"></div>
+			<p class="type1" id="type1">TYPE</p>
+			<p class="type2" id="type2">TYPE</p>
+			<p class="no" id="no">001</p>
+			<p class="ht" id="ht">1'00''</p>
+			<p class="wt" id="wt">1</p>
+			<p class="dexdescripton" id="dexdescription">This Pokémon is really cool! This Pokémon is really tough! </p>
+		</div>
+
+		<div class="edit">
+			<p class="edittitle">Pokedex Template</p>
+			<label class="labelName">Name: <input type="text" class="newName" id="newName" size="10"><button
+					class="nameButton" onclick="changeName()"> Submit</button></label>
+			<label class="labelDesc">Species: <input type="text" class="newDesc" id="newDesc" size="10"><button
+					class="descButton" onclick="changeDesc()"> Submit</button></label>
+			<label class="labelNo">Number: <input type="text" class="newNo" id="newNo" size="10"><button class="noButton"
+					onclick="changeNo()"> Submit</button></label>
+			<label class="labelHt">Height: <input type="text" class="newHt" id="newHt" size="10"><button class="htButton"
+					onclick="changeHt()"> Submit</button></label>
+			<label class="labelWt">Weight: <input type="text" class="newWt" id="newWt" size="10"><button class="wtButton"
+					onclick="changeWt()"> Submit</button></label>
+			<label class="labelDexDesc">Dex Description <input type="text" class="newDexDesc" id="newDexDesc"
+					size="10"><button class="dexdescButton" onclick="changeDexDesc()"> Submit</button></label>
+			<label class="labelChangeType1">Type 1: <input type="text" class="newtype1" id="newtype1" size="10"><button
+					class="typetext1Button" onclick="changeType1()"> Submit</button></label>
+			<label class="labelChangeType2">Type 2: <input type="text" class="newtype2" id="newtype2" size="10"><button
+					class="typetext2Button" onclick="changeType2()"> Submit</button></label>
+			<label class="type1Color">Type 1 Color:
+				<select id="selectType1" onchange="changeColor(value);">
+					<option value="">Select Type 1</option>
+					<option value="grass">Grass</option>
+					<option value="fire">Fire</option>
+					<option value="water">Water</option>
+					<option value="normal">Normal</option>
+					<option value="electric">Electric</option>
+					<option value="ice">Ice</option>
+					<option value="fighting">Fighting</option>
+					<option value="poison">Poison</option>
+					<option value="ground">Ground</option>
+					<option value="flying">Flying</option>
+					<option value="psychic">Psychic</option>
+					<option value="bug">Bug</option>
+					<option value="rock">Rock</option>
+					<option value="ghost">Ghost</option>
+					<option value="dragon">Dragon</option>
+					<option value="dark">Dark</option>
+					<option value="steel">Steel</option>
+					<option value="fairy">Fairy</option>
+				</select>
+			</label>
+			<label class="type2Color">Type 2 Color:
+				<select id="selectType2" onchange="changeColor2(value);">
+					<option value="">Select Type 2</option>
+					<option value="grass">Grass</option>
+					<option value="fire">Fire</option>
+					<option value="water">Water</option>
+					<option value="normal">Normal</option>
+					<option value="electric">Electric</option>
+					<option value="ice">Ice</option>
+					<option value="fighting">Fighting</option>
+					<option value="poison">Poison</option>
+					<option value="ground">Ground</option>
+					<option value="flying">Flying</option>
+					<option value="psychic">Psychic</option>
+					<option value="bug">Bug</option>
+					<option value="rock">Rock</option>
+					<option value="ghost">Ghost</option>
+					<option value="dragon">Dragon</option>
+					<option value="dark">Dark</option>
+					<option value="steel">Steel</option>
+					<option value="fairy">Fairy</option>
+				</select>
+			</label>
+			<button class="hidetype2" onclick="hideType2()">Hide Type 2</button>
+			<button class="showtype2" onclick="showType2()">Show Type 2</button>
+			<button class="save" onclick="doCapture();">Save Image</button>
+		</div>
+	</div>
+	<div class="imgout">
+		
+		<script>
+			
+			function doCapture() {
+				var images=document.querySelectorAll('img');
+                var text = document.querySelectorAll('p');
+				for(var i=0; i<text.length; i++){
+	    			text[i].style.paddingTop = ("7px");
+				}
+
+				html2canvas(document.getElementById("pokedex-box"), {logging: true, letterRendering: 1, allowTaint: true, useCORS: true, scale: 5, dpi:400}).then(function (canvas) {
+					var ctx = canvas.getContext('2d');
+					ctx.webkitImageSmoothingEnabled = false;
+					ctx.mozImageSmoothingEnabled = false;
+					ctx.imageSmoothingEnabled = false;
+					var img=canvas.toDataURL("image/png",1);
+					console.log(img);
+					var a = document.createElement("a"); 
+					a.href = img; 
+					a.download = "Image.png"; 
+					a.click(); 
+				});
+
+                var text = document.querySelectorAll('p');
+				for(var i=0; i<text.length; i++){
+	    			text[i].style.paddingTop = ("0px");
+				}
+			}
+		</script>
+	</div>
+
+</body>
+
+</html>

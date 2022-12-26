@@ -1,0 +1,168 @@
+*,html{
+    margin:0;
+    padding:0;
+}
+@font-face{
+    font-family: PKMNRBYGSC;
+    src: url('PKMN RBYGSC.ttf')
+}
+.pokedex-box{
+    float:left;
+    width: 304px;
+    height: 192px;
+}
+img{
+    position: absolute;
+    top:0;
+    left:0;
+}
+.pokemon{
+    margin-top: 10px;
+    margin-left: 10px
+}
+.bgtile{
+    z-index:1;
+}
+.boxes{
+    z-index:3;
+}
+.typebox1{
+    z-index:4;
+}
+.typebox2{
+    z-index:4;
+}
+.pokemon{
+    z-index:5;
+}
+p{
+    padding: 0;
+    font-family: PKMNRBYGSC;
+    font-size: 9px;
+    position:absolute;
+    z-index:6;
+}
+.pokemon-name{
+    margin-left: 132px;
+    margin-top: 12px;
+    
+}
+.description{
+    margin-left: 132px;
+    margin-top: 26px;
+}
+.typecolor1{
+    position:absolute;
+    z-index: 5;
+    width: 53px;
+    height: 12px;
+    margin-left:115px;
+    margin-top:53px;
+}
+.typecolor2{
+    position:absolute;
+    z-index: 5;
+    width: 53px;
+    height: 12px;
+    margin-left:174px;
+    margin-top:53px;
+}
+.type1{
+    margin-left: 123px;
+    margin-top: 54px;
+}
+.type2{
+    margin-left: 182px;
+    margin-top: 54px;
+}
+.no{
+    margin-left: 44px;
+    margin-top: 113px;
+}
+.ht{
+    margin-left: 112px;
+    margin-top: 113px;
+}
+.wt{
+    margin-left: 192px;
+    margin-top: 113px;
+}
+.dexdescripton{
+    max-width: 232px;
+    max-height: 46px;
+    line-height: 1.5;
+    margin-left: 15px;
+    margin-top: 135px;
+}
+
+.edit{
+    height: 550px;
+    width: 304px;
+    position: absolute;
+    left:304px;
+    background-color:cadetblue;
+    display: flex;
+    flex-flow: column wrap;
+
+}
+.edittitle{
+    margin-left: 90px;
+}
+.hidetype2{
+    font-family: PKMNRBYGSC;
+    font-size: 9px;
+    margin-top:20px;
+}
+.showtype2{
+    font-family: PKMNRBYGSC;
+    font-size: 9px;
+    margin-top:20px;
+}
+.save{
+    font-family: PKMNRBYGSC;
+    font-size: 9px;
+    margin-top:20px;
+}
+label{
+    font-family: PKMNRBYGSC;
+    font-size: 9px;
+    margin-top:20px;
+}
+.newtype1{
+    width:80px;
+}
+
+.newtype2{
+    width:80px;
+}
+.newName{
+    width:80px;
+}
+.newDesc{
+    width:80px;
+}
+.newNo{
+    width:80px;
+}
+.newHt{
+    width:80px;
+}
+.newWt{
+    width:80px;
+}
+.newDexDesc{
+    width:80px;
+}
+
+button{
+    font-family: PKMNRBYGSC;
+    font-size: 9px;
+}
+.imgout{
+    height: 550px;
+    width: 304px;
+    position: absolute;
+    left:608px;
+    display: flex;
+    flex-flow: column wrap;
+}
